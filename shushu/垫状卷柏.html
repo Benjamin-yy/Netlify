@@ -8,9 +8,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
     <link rel="stylesheet" href="../CSS/style2.css">
-    <script src="../js/search.js"></script>
     <link rel="stylesheet" href="../CSS/search.css">
+    <script src="../js/search.js"></script>
+    <style>
+        .fa-chevron-left:hover {
+            transform: translateX(-3px);
+            background: rgba(255,255,255,0.2);
+        }
+    </style>
+
     <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
         html,
         body,
         .map {
@@ -19,15 +27,14 @@
             height: 100%;
             margin: 0px;
         }
-        
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: "Poppins", sans-serif;
         }
-        
+
         header {
             z-index: 999;
             position: absolute;
@@ -40,7 +47,7 @@
             padding: 15px 200px;
             transition: 0.5s ease;
         }
-        
+
         header .brand {
             color: #fff;
             font-size: 1.5em;
@@ -48,11 +55,11 @@
             text-transform: uppercase;
             text-decoration: none;
         }
-        
+
         header .navigation {
             position: relative;
         }
-        
+
         header .navigation .navigation-items a {
             position: relative;
             color: #fff;
@@ -62,7 +69,7 @@
             margin-left: 30px;
             transition: 0.3s ease;
         }
-        
+
         header .navigation .navigation-items a:before {
             content: '';
             position: absolute;
@@ -73,12 +80,12 @@
             left: 0;
             transition: 0.3s ease;
         }
-        
+
         header .navigation .navigation-items a:hover:before {
             width: 100%;
         }
         /*  */
-        
+
         .home video {
             z-index: 000;
             position: absolute;
@@ -88,7 +95,7 @@
             height: 100%;
             object-fit: cover;
         }
-        
+
         @media (max-width: 1040px) {
             header {
                 padding: 12px 20px;
@@ -151,7 +158,7 @@
                 transition: 0.3s ease;
             }
         }
-        
+
         @media (max-width: 560px) {
             .home .content h1 {
                 font-size: 3em;
@@ -159,13 +166,28 @@
             }
         }
     </style>
-    <title>珍稀植物分布</title>
+    <title>垫状卷柏</title>
 </head>
 
 <body>
     <div style="display: block;width: 100%;height: 68px;">
-        <header style="background-color: black;width: 100%;height: 68px;">
-            <a href="#" class="brand">wildlife conservation</a>
+        <header style="background-color: black; width: 100%; height: 68px; display: flex; align-items: center; padding-left: 20px;">
+            <!-- 返回按钮 -->
+            <a href="javascript:void(0);"
+               class="back-btn"
+               onclick="closeCurrentTab()"
+               style="display: flex; align-items: center; text-decoration: none; margin-right: 40px;">
+                <i class="fas fa-chevron-left"
+                   style="color: #4CAF50;
+                          font-size: 25px;
+                          transition: all 0.3s ease;
+                          padding: 6px;
+                          background: rgba(255,255,255,0.1);
+                          border-radius: 50%;"></i>
+            </a>
+
+
+            <a href="#" class="brand" style="font-size: 1.5em; color: #fff; text-transform: uppercase;">wildlife conservation</a>
             <div class="menu-btn"></div>
             <div class="navigation">
                 <div class="navigation-items">
@@ -179,32 +201,30 @@
             </div>
         </header>
     </div>
-    <div style="display: block;padding-top: 68px;;width: 100%;height: 34px;position: absolute;">
-        <header style="background-color: rgb(4, 51, 125);width: 100%;height: 34px;">
-            <a href="one.html" class="brand">水杉</a>
-            <a href="two.html" class="brand" style="color: greenyellow;">银杏</a>
-            <a href="three.html" class="brand">珙桐</a>
-            <a href="four.html" class="brand">红豆杉</a>
-            <a href="five.html" class="brand">银杉</a>
-            <a href="six.html" class="brand">望天树</a>
-            <a href="seven.html" class="brand">连香树</a>
-            <a href="eight.html" class="brand">金钱松</a>
-            <a href="nine.html" class="brand">荷叶铁线蕨</a>
-            <a href="ten.html" class="brand">攀枝花苏铁</a>
-        </header>
-    </div>
-    <div style="margin-top: 32px ;width: 100%;height: 650px;">
+    <div style="margin-top: 0px ;width: 100%;height: 650px;">
         <div style="background-color: #7591AD;width: 25%;height: 650px;left: 75%;float: right;z-index: 10;">
             <div class="card">
                 <div class="photo">
-                    <img src="../img/x2.jpg">
+                    <img src="../img/images/垫状卷柏.png">
                 </div>
-                <h2>银杏</h2>
-                <p>银杏（学名：Ginkgo biloba）是银杏科唯一现存物种，为落叶乔木，因叶片呈独特扇形且叶脉二叉分歧而得名。其树干通直，树皮灰褐色，叶片春夏季淡绿、秋季金黄，具有长柄，雌雄异株，雄球花呈葇荑花序状，雌球花具长梗且顶端常分两叉。种子核果状，外种皮肉质成熟时呈黄色或橙黄色，散发特殊气味，中种皮骨质坚硬。作为现存最古老的种子植物之一，银杏遗传多样性高度单一，98% 以上基因源自中国东部种群。被列为国家一级保护植物，并被 IUCN 红色名录评定为濒危（EN）。在中国，野生银杏主要分布于浙江天目山（约 294 株）、湖北大洪山钱冲古银杏国家森林公园（天然古银杏群落）等地。</p>
+                <h2>垫状卷柏</h2>
+                <p>垫状卷柏，（学名：Selaginella pulvinata (Hook. et Grev.) Maxim.），是卷柏科卷柏属多年生草本植物。垫状卷柏以孢子繁殖，常生长于海拔 1000 - 3000 米的山顶岩石上或干旱的山坡中，适应干旱、高温、强光照且土壤贫瘠的恶劣环境，具有极强的耐旱性，干燥时枝叶蜷缩如拳，遇水后舒展恢复生机。植株呈垫状，主茎短，分枝密集丛生，叶二型，中叶与侧叶排列紧密，表面有膜质边缘。垫状卷柏在中国分布于陕西、甘肃、青海、四川等地。该野生物种在我国现存约50000株。</p>
             </div>
         </div>
         <div id="container" class="map" tabindex="0" style="width: 75%;"></div>
     </div>
+
+
+    <script>
+        function closeCurrentTab() {
+            window.open('', '_self', '');  // 解除安全限制
+            window.close();                // 尝试关闭当前标签页
+            setTimeout(() => {
+                history.back();            // 如果无法关闭则返回
+            }, 200);
+        }
+    </script>
+
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=9d888be0a8a6c62f3770ea6df72f206d&plugin=Map3D,AMap.DistrictLayer,AMap.Scale,AMap.ToolBar"></script>
     <script type="text/javascript" src="https://a.amap.com/jsapi_demos/static/demo-center/data/china-pp.js"></script>
     <script type="text/javascript">
@@ -217,18 +237,18 @@
             '500000': 1, //重庆
             '360000': 1, //江西
             '340000': 1, //安徽
-            '510000': 1, //四川
+            '510000': 6, //四川
             '350000': 1, //福建
             '430000': 1, //湖南
             '420000': 1, //湖北
             '410000': 1, //河南
-            '330000': 6, //浙江
+            '330000': 1, //浙江
             '640000': 1, //宁夏
             '650000': 1, //新疆
             '440000': 1, //广东
-            '370000': 6, //山东
+            '370000': 1, //山东
             '450000': 1, //广西
-            '630000': 1, //青海
+            '630000': 6, //青海
             '320000': 1, //江苏
             '140000': 1, //山西
             '460000': 1, // 海南
@@ -240,8 +260,8 @@
             '210000': 1, //辽宁
             '150000': 1, //内蒙古
             '120000': 1, // 天津
-            '620000': 1, // 甘肃
-            '610000': 1, // 陕西
+            '620000': 6, // 甘肃
+            '610000': 6, // 陕西
             '710000': 1, //台湾
             '810000': 1, //香港
             '820000': 1 //澳门

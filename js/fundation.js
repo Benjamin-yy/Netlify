@@ -47,7 +47,6 @@ var data = {
                     "name": "红豆杉纲",
                     "children": [
                         {"name": "东北红豆杉", "value": 11100,"image":'img/images/东北红豆杉.jpg'},
-                        {"name": "西藏红豆杉", "value": 9800,"image":'img/images/西藏红豆杉.jpg'},
                         {"name": "喜马拉雅红豆杉", "value": 1300,"image":'img/images/喜马拉雅红豆杉.jpg'},
                         {"name": "穗花杉", "value": 4325,"image":'img/images/穗花杉.jpg'},
                         {"name": "台湾穗花杉", "value": 2100,"image":'img/images/台湾穗花杉.jpg'},
@@ -159,7 +158,7 @@ var data = {
                         {"name": "桫椤", "value": 21300,"image":'img/images/桫椤.jpg'},
                         {"name": "光叶蕨", "value": 95,"image":'img/images/光叶蕨.png'},
                         {"name": "荷叶铁线蕨", "value": 600,"image":'img/images/荷叶铁线蕨.jpg'},
-                        {"name": "瓶儿小草", "value": 4000,"image":'img/images/瓶儿小草.png'},
+                        {"name": "瓶尔小草", "value": 4000,"image":'img/images/瓶尔小草.png'},
                         {"name": "玉龙蕨", "value": 1940,"image":'img/images/玉龙蕨.png'},
                         {"name": "中华桫椤", "value": 8000,"image":'img/images/中华桫椤.jpg'},
                         {"name": "带状瓶尔小草", "value": 45,"image":'img/images/带状瓶尔小草.jpg'},
@@ -341,6 +340,16 @@ myChart.setOption(option = {
         animationDurationUpdate: 750,
         initialTreeDepth: 1
     }]
+});
+
+myChart.on('click', function (params) {
+    // 仅叶子节点触发跳转
+    if (!params.data.children) {
+        // 获取植物名并编码特殊字符
+        const plantName = encodeURIComponent(params.data.name);
+        // 新标签页打开对应页面（假设页面路径为plant_pages/[植物名].html）
+        window.open(`shushu/${plantName}.html`, '_blank');
+    }
 });
 
 myChart.setOption(option);
