@@ -1,0 +1,67 @@
+/* 添加淡入动画的关键帧 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* tooltip 容器样式 */
+.custom-tooltip {
+    background: rgba(255, 255, 255, 0.95) !important; /* 半透明白色背景 */
+    border: none !important; /* 移除边框 */
+    border-radius: 12px !important; /* 更柔和的圆角 */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25) !important; /* 增强阴影 */
+    padding: 20px !important; /* 增加内边距 */
+    font-family: Microsoft YaHei, sans-serif;
+    font-size: 18px !important; /* 稍大字体 */
+    text-align: center;
+    color: #222 !important; /* 更深文本颜色 */
+    max-width: 320px !important; /* 略增最大宽度 */
+    animation: fadeIn 0.5s ease !important; /* 淡入动画 */
+    z-index: 1000 !important; /* 确保在最上层 */
+}
+
+/* 层级路径样式 */
+.hierarchy-path {
+    color: #555 !important; /* 稍深灰色 */
+    line-height: 1.6;
+    font-size: 13px !important; /* 增大字体 */
+    word-break: break-word !important; /* 优化中文换行 */
+}
+
+/* 箭头符号样式 */
+.caret {
+    color: #3498db;
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+/* 叶子节点内容样式 */
+.leaf-content {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e5e5;
+    text-align: center; /* 居中子元素内容 */
+}
+
+/* 数量值标签样式 */
+.value-tag {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* 图片容器样式 */
+.image-wrapper {
+    width: 280px; /* 保持原大小 */
+    height: 250px; /* 保持原大小 */
+    margin-top: 5px;
+    margin-left: auto; /* 水平居中 */
+    margin-right: auto; /* 水平居中 */
+}
+
+/* 图片样式 */
+.node-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 完整显示图片并居中 */
+    border-radius: 6px;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>物种树图</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <script src="js/echarts.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/search.js"></script>
+    <link rel="stylesheet" href="CSS/ini.css">
+    <link rel="stylesheet" href="CSS/tutu.css">
+    <link rel="stylesheet" href="CSS/style1.css">
+    <link rel="stylesheet" href="CSS/search.css">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+         ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+         ::-webkit-scrollbar-track-piece {
+            background-color: #CCCCCC;
+            -webkit-border-radius: 6px;
+        }
+
+         ::-webkit-scrollbar-thumb:vertical {
+            height: 5px;
+            background-color: #999999;
+            -webkit-border-radius: 6px;
+        }
+
+         ::-webkit-scrollbar-thumb:horizontal {
+            width: 5px;
+            background-color: #CCCCCC;
+            -webkit-border-radius: 6px;
+        }
+
+        i {
+            font-style: normal;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        input {
+            outline: none;
+            border: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        html,
+        body {
+            width: 100%;
+            font: 14px/150% tahoma, arial, Microsoft YaHei, Hiragino Sans GB, "\u5b8b\u4f53", sans-serif;
+            -webkit-font-smoothing: antialiased;
+             color: #666;
+            height: 100%;
+            background: url(img/bg1.jpg);
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: block;width: 100%;height: 68px;">
+        <header style="background-color: black;width: 100%;height: 68px;">
+            <a href="#" class="brand">wildlife conservation</a>
+            <div class="menu-btn"></div>
+            <div class="navigation">
+                <div class="navigation-items">
+                    <a href="index.html">首页</a>
+                    <a href="main.html" style="color: greenyellow;">物种树图</a>
+                    <a href="shida_html/one.html">珍惜植物分布</a>
+                    <a href="page2.html">各项数据</a>
+                    <a href="last2.html">云词政策</a>
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div>
+        <div id="main" style="width: 1200px;height: 800px;margin: 0 auto;background-color: rgba(63, 59, 59, 0.5);display: block;">
+            <script type="text/javascript" src="js/fundation.js"></script>
+        </div>
+    </div>
+
+    <div id="image-tooltip" style="position:absolute;display:none;z-index:999;">
+        <img src="" style="max-width:200px;max-height:150px;border:2px solid #4CAF50;">
+    </div>
+
+</body>
+</html>

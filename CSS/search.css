@@ -1,0 +1,347 @@
+/* 搜索功能样式 */
+.search-icon {
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 20px;
+    z-index: 1001;
+}
+
+.search-icon:hover {
+    color: greenyellow;
+    transform: scale(1.1);
+}
+
+.search-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    backdrop-filter: blur(8px);
+}
+
+.search-container {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: linear-gradient(145deg, rgba(10,25,10,0.95), rgba(5,15,5,0.98));
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 255, 0, 0.25);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 1000;
+    border: 1px solid rgba(172, 255, 47, 0.3);
+}
+
+.search-container.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.search-box {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.search-input {
+    width: 450px;
+    padding: 16px 30px;
+    font-size: 18px;
+    background: rgba(17, 34, 17, 0.9);
+    border: 2px solid rgba(172, 255, 47, 0.5);
+    border-radius: 35px;
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: greenyellow;
+    box-shadow: 0 0 25px rgba(172, 255, 47, 0.3);
+}
+
+.search-btn {
+    padding: 0 30px;
+    height: 50px;
+    background: linear-gradient(135deg, greenyellow 0%, #8bc34a 100%);
+    border: none;
+    border-radius: 35px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.search-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(172, 255, 47, 0.4);
+}
+
+.search-result-box {
+    position: fixed;
+    top: calc(30% + 130px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    width: 1000px;
+    max-height: 300px;
+    padding: 25px 40px;
+    background: rgba(5,15,5,0.95);
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(0, 255, 0, 0.2);
+    color: greenyellow;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.8;
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 1000;
+    border: 1px solid rgba(172, 255, 47, 0.2);
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+
+.search-result-box::-webkit-scrollbar {
+    width: 8px;
+    background: rgba(0,20,0,0.8);
+}
+
+.search-result-box::-webkit-scrollbar-thumb {
+    background: greenyellow;
+    border-radius: 4px;
+}
+
+.search-result-box.show {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+.search-close-btn {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    cursor: pointer;
+    font-size: 26px;
+    color: rgba(172, 255, 47, 0.8);
+    transition: all 0.3s ease;
+    padding: 5px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+}
+
+.search-close-btn:hover {
+    transform: rotate(90deg) scale(1.15);
+    color: greenyellow;
+    background: rgba(0,0,0,0.5);
+}
+
+
+/*!* Search Component Styles v2.0 *!*/
+/*!* 核心搜索组件样式 *!*/
+
+/*.search-icon {*/
+/*    color: #fff;*/
+/*    font-size: 20px;*/
+/*    cursor: pointer;*/
+/*    transition: all 0.3s ease;*/
+/*    margin-left: 25px;*/
+/*    z-index: 2001;*/
+/*}*/
+
+/*.search-icon:hover {*/
+/*    color: #adff2f;*/
+/*    transform: scale(1.15);*/
+/*}*/
+
+/*!* 遮罩层 *!*/
+/*.search-overlay {*/
+/*    display: none;*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background: rgba(0, 0, 0, 0.85);*/
+/*    z-index: 1999;*/
+/*    backdrop-filter: blur(12px);*/
+/*}*/
+
+/*!* 主搜索容器 *!*/
+/*.search-container {*/
+/*    position: fixed;*/
+/*    top: 35%;*/
+/*    left: 50%;*/
+/*    width: 680px;*/
+/*    min-width: 680px;*/
+/*    padding: 40px 60px;*/
+/*    background: linear-gradient(145deg, rgba(15,35,15,0.98), rgba(8,22,8,0.95));*/
+/*    border-radius: 25px;*/
+/*    box-shadow: 0 0 50px rgba(0, 255, 0, 0.3);*/
+/*    transform: translate(-50%, -50%) scale(0);*/
+/*    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);*/
+/*    z-index: 2000;*/
+/*    border: 2px solid rgba(173, 255, 47, 0.4);*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*.search-container.active {*/
+/*    transform: translate(-50%, -50%) scale(1);*/
+/*}*/
+
+/*!* 输入框布局 *!*/
+/*.search-box {*/
+/*    display: flex;*/
+/*    gap: 20px;*/
+/*    align-items: center;*/
+/*    width: 100%;*/
+/*}*/
+
+/*!* 输入框样式 *!*/
+/*.search-input {*/
+/*    width: 100%;*/
+/*    min-width: 500px;*/
+/*    padding: 20px 40px;*/
+/*    font-size: 22px;*/
+/*    background: rgba(20, 40, 20, 0.9);*/
+/*    border: 2px solid rgba(173, 255, 47, 0.6);*/
+/*    border-radius: 40px;*/
+/*    color: #fff;*/
+/*    outline: none;*/
+/*    transition: all 0.3s ease;*/
+/*}*/
+
+/*.search-input:focus {*/
+/*    border-color: #adff2f;*/
+/*    box-shadow: 0 0 35px rgba(173, 255, 47, 0.4);*/
+/*}*/
+
+/*!* 搜索按钮 *!*/
+/*.search-btn {*/
+/*    padding: 0 45px;*/
+/*    height: 64px;*/
+/*    background: linear-gradient(135deg, #adff2f 0%, #7cb342 100%);*/
+/*    border: none;*/
+/*    border-radius: 40px;*/
+/*    color: #000;*/
+/*    font-weight: 700;*/
+/*    font-size: 20px;*/
+/*    cursor: pointer;*/
+/*    transition: all 0.3s ease;*/
+/*    flex-shrink: 0;*/
+/*    letter-spacing: 1.5px;*/
+/*}*/
+
+/*.search-btn:hover {*/
+/*    transform: scale(1.05);*/
+/*    box-shadow: 0 0 40px rgba(173, 255, 47, 0.5);*/
+/*}*/
+
+/*!* 结果框样式 *!*/
+/*.search-result-box {*/
+/*    position: fixed;*/
+/*    top: calc(35% + 160px);*/
+/*    left: 50%;*/
+/*    width: 680px;*/
+/*    min-width: 680px;*/
+/*    max-height: 60vh;*/
+/*    padding: 35px 60px;*/
+/*    background: rgba(8, 22, 8, 0.95);*/
+/*    border-radius: 25px;*/
+/*    box-shadow: 0 0 50px rgba(0, 255, 0, 0.25);*/
+/*    color: #adff2f;*/
+/*    text-align: left;*/
+/*    font-size: 20px;*/
+/*    line-height: 2.2;*/
+/*    opacity: 0;*/
+/*    transform: translateX(-50%) scale(0.95);*/
+/*    transition: all 0.4s ease;*/
+/*    z-index: 2000;*/
+/*    border: 2px solid rgba(173, 255, 47, 0.3);*/
+/*    overflow-y: auto;*/
+/*    white-space: pre-wrap;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*.search-result-box.show {*/
+/*    opacity: 1;*/
+/*    transform: translateX(-50%) scale(1);*/
+/*}*/
+
+/*!* 滚动条样式 *!*/
+/*.search-result-box::-webkit-scrollbar {*/
+/*    width: 10px;*/
+/*    background: rgba(0, 30, 0, 0.9);*/
+/*}*/
+
+/*.search-result-box::-webkit-scrollbar-thumb {*/
+/*    background: #adff2f;*/
+/*    border-radius: 5px;*/
+/*    border: 2px solid rgba(0, 30, 0, 0.9);*/
+/*}*/
+
+/*!* 关闭按钮 *!*/
+/*.search-close-btn {*/
+/*    position: absolute;*/
+/*    right: 30px;*/
+/*    top: 30px;*/
+/*    cursor: pointer;*/
+/*    font-size: 28px;*/
+/*    color: rgba(173, 255, 47, 0.9);*/
+/*    transition: all 0.3s ease;*/
+/*    padding: 8px;*/
+/*    background: rgba(0, 0, 0, 0.4);*/
+/*    border-radius: 50%;*/
+/*    line-height: 1;*/
+/*}*/
+
+/*.search-close-btn:hover {*/
+/*    transform: rotate(90deg) scale(1.2);*/
+/*    color: #adff2f;*/
+/*    background: rgba(0, 0, 0, 0.6);*/
+/*}*/
+
+/*!* 移动端适配 *!*/
+/*@media (max-width: 768px) {*/
+/*    .search-container {*/
+/*        width: 92vw !important;*/
+/*        min-width: unset;*/
+/*        padding: 25px;*/
+/*        top: 30%;*/
+/*    }*/
+
+/*    .search-input {*/
+/*        min-width: unset;*/
+/*        font-size: 18px;*/
+/*        padding: 16px 25px;*/
+/*    }*/
+
+/*    .search-btn {*/
+/*        padding: 0 25px;*/
+/*        height: 54px;*/
+/*        font-size: 18px;*/
+/*    }*/
+
+/*    .search-result-box {*/
+/*        width: 92vw !important;*/
+/*        min-width: unset;*/
+/*        padding: 25px;*/
+/*        top: calc(30% + 120px);*/
+/*        font-size: 18px;*/
+/*    }*/
+/*}*/
+
+/*!* 全局样式覆盖保护 *!*/
+/*.search-container * {*/
+/*    margin: 0 !important;*/
+/*    padding: 0 !important;*/
+/*    box-sizing: inherit !important;*/
+/*    line-height: normal !important;*/
+/*    font-family: "Poppins", sans-serif !important;*/
+/*}*/
+
